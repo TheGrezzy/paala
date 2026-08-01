@@ -15,7 +15,7 @@ p {
   font-size: 20px;
 }
 
-table {
+#values {
   border: 3px solid transparent;
   color: #36353b;
   width: 50%;
@@ -48,4 +48,19 @@ tablecontainer {
   overflow-x: auto;
 }
 
+footer {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  height: 150px;
+  background-color: #100012;
+  color: black;
+}
+
+img {
+  width: auto;
+  height: 150px;
+}
 

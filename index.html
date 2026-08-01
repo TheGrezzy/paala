@@ -5,8 +5,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-tr:nth-child(odd) {background-color: #37003c;}
-tr:hover {background-color: #c00080;}
+.valueRow:nth-child(odd) {background-color: #37003c;}
+.valueRow:hover {background-color: #c00080;}
 </style>
 </head>
 <body>
@@ -20,8 +20,8 @@ tr:hover {background-color: #c00080;}
 <script>
   function csvToTable(csv, hasHeader = false) {
   const rows = csv.trim().split('\n');
-  let html = '<table>\n';
-
+  let html = '<table id="values">\n';
+ 
   for (let i = 0; i < rows.length; i++) {
     const cells = rows[i].split(',');
     let tag = 'td';
@@ -30,7 +30,7 @@ tr:hover {background-color: #c00080;}
     if (hasHeader && i === 0) html += '  <thead>\n';
     if (hasHeader && i === 1) html += '  <tbody>\n';
 
-    html += '    <tr>';
+    html += '    <tr class="valueRow">';
     for (let j = 0; j < cells.length; j++) {
       if (j == 0) html += '<' + tag + " class='firstcell'" + '>' + cells[j].trim() + '</' + tag + '>';
       if (j != 0) html += '<' + tag + '>' + cells[j].trim() + '</' + tag + '>';
@@ -63,6 +63,23 @@ getData();
 </script>
 
 
-
+<footer>
+  <table id="footerTable" style="width:90%;margin:0px auto;">
+    <tr>
+      <td>
+        <img src="racism.png" alt="vini">
+      </td>
+      <td>
+        <img src="win.png" alt="arg">
+      </td>
+      <td>
+        <img src="objekt.png" alt="arg">
+      </td>
+      <td>
+        <img src="drink.png" alt="arg">
+      </td>
+    </tr>
+  </table>
+</footer>
 </body>
 </html>

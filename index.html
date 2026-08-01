@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"> 
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+tr:nth-child(odd) {background-color: #37003c;}
+tr:hover {background-color: #c00080;}
+</style>
+</head>
+<body>
+
+<h1>Paala Tööjõumarket</h1>
+
+
+<div id="table"></div>
+
+
+<script>
+  function csvToTable(csv, hasHeader = false) {
+  const rows = csv.trim().split('\n');
+  let html = '<table>\n';
+
+  for (let i = 0; i < rows.length; i++) {
+    const cells = rows[i].split(',');
+    let tag = 'td';
+    if (hasHeader && i === 0) tag = 'th';
+
+    if (hasHeader && i === 0) html += '  <thead>\n';
+    if (hasHeader && i === 1) html += '  <tbody>\n';
+
+    html += '    <tr>';
+    for (let j = 0; j < cells.length; j++) {
+      if (j == 0) html += '<' + tag + " class='firstcell'" + '>' + cells[j].trim() + '</' + tag + '>';
+      if (j != 0) html += '<' + tag + '>' + cells[j].trim() + '</' + tag + '>';
+    }
+    html += '</tr>\n';
+
+    if (hasHeader && i === 0) html += '  </thead>\n';
+  }
+
+  if (hasHeader) html += '  </tbody>\n';
+  html += '</table>';
+  document.getElementById("table").innerHTML = html
+}
+async function getData() {
+  const url = "https://docs.google.com/spreadsheets/d/1r7qJffMtnfnEz8i7_TpO6HVqsXGlNHB3E6H07UGEKeA/export?format=csv&gid=0";
+  try {
+    const response = await fetch(url);
+    const csv = await response.text();
+    if (!response.ok) {
+      throw new Error(`Response status: ${response.status}`);
+    }
+    csvToTable(csv);
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+</script>
+<script>
+getData();
+</script>
+
+
+
+</body>
+</html>

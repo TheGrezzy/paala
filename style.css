@@ -1,0 +1,51 @@
+
+
+body {
+  background-color: rgb(30, 0, 33);
+}
+
+h1 {
+    font-family: Open Sans;
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: Open Sans;
+  font-size: 20px;
+}
+
+table {
+  border: 3px solid transparent;
+  color: #36353b;
+  width: 50%;
+  height: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 0px;
+  border-image: linear-gradient(#c00080, #37003c) 30;
+
+
+
+}
+
+.firstcell {
+  width: 10%;
+  text-align: center;
+}
+
+
+tr, td {
+  color: white;
+  font-family: Open Sans;
+  font-size: 20px;
+  border: 0px;
+  text-align: left;
+}
+
+tablecontainer {
+  overflow-x: auto;
+}
+
+
